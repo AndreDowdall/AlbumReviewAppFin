@@ -128,5 +128,5 @@ Rails.application.configure do
       :enable_starttls_auto => true
     }
     config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options ={:host => 'https://albumreviews.herokuapp.com/', :protocol => 'https'}
+  config.action_mailer.default_url_options ={:host => 'https://albumsreviewer.herokuapp.com/', :protocol => 'https'}
 end
