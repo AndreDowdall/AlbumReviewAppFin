@@ -37,6 +37,9 @@ gem 'activeadmin', '~> 2.9'
 #gem 'mini_magick', '~> 4.11'
 gem 'sendgrid-ruby', '~> 6.4'
 
+#buckateer
+gem "aws-sdk-s3", require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
