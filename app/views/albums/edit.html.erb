@@ -1,0 +1,12 @@
+<h2>Edit Album</h2>
+
+<%= simple_form_for @album, :html => { :multipart => true } do |f| %>
+	<%= f.select :genre_id, @genres %>
+	<%= f.file_field :album_cover %>
+	<%= f.input :title, label: "Album"%>
+	<%= f.input :description %>
+	<%= f.input :band %>
+	<%= f.input :year %>
+	<%= f.button :submit %>
+<% end %>
+

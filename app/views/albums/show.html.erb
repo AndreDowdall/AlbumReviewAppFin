@@ -1,0 +1,43 @@
+<%= image_tag @album.album_cover %>
+<h3>Album: <%= @album.title %></h3>
+<h4>Artist: <%= @album.band %></h4>
+<h4>Genre: <%= @album.genre.name %></h4>
+<h5>Description: <%= @album.description %></h5>
+<h5>Year: <%= @album.year %></h5>
+
+
+<p><%= render @album.reviews %></p>
+
+<%= link_to "Add Review", new_album_review_path(@album) %>
+
+<%= link_to "Back", root_path %>
+
+<% if user_signed_in? %>
+
+<% if @album.user_id == current_user.id %>
+	<%= link_to "Edit", edit_album_path(@album) %>
+	<%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Delete #{@album.title} album"} %>
+<% end %>
+
+<% end %>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/javascript/'
+
+	});
+</script>
+
+<script>
+	$('.avaerage-review-rating').raty({
+		readOnly: true,
+		path: '/javascript/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

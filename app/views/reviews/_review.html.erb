@@ -1,0 +1,10 @@
+<p>Rating:<%= review.rating %></p>
+
+<p>Review:<%= review.comment %></p>
+
+<% if user_signed_in?%>
+	<% if review.user_id == current_user.id%>
+<%= link_to "Edit", edit_album_review_path(review.album, review) %>
+<%= link_to "Delete", album_review_path(review.album, review), method: :delete, data: {confirm: "Confirm"} %>
+	<% end %>
+<% end %>
