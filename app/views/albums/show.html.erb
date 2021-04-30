@@ -26,7 +26,7 @@
   <div class="panel-heading">Reviews (# of reviews: <%= @album.reviews.count %>)</div>
   	<div class="panel-body">
 
-	    <div class="list-group-item"><%= render @album.reviews %></div>
+	    <div class="list-group-item"> <%= render @album.reviews %></div>
 	</div>    
 
 		<%= link_to "Add Review", new_album_review_path(@album), class: "btn btn-default" %>
