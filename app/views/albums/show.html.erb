@@ -1,23 +1,42 @@
 <%= image_tag @album.album_cover.variant(resize_to_fill: [300, 300, gravity: 'north'])  %>
-<h3>Album: <%= @album.title %></h3>
-<h4>Artist: <%= @album.band %></h4>
-<h4>Genre: <%= @album.genre.name %></h4>
-<h5>Description: <%= @album.description %></h5>
-<h5>Year: <%= @album.year %></h5>
+<div class="panel panel-default">
+
+  <div class="panel-heading">Album: <%= @album.title %></div>
+  	<div class="panel-body">
+
+	  <ul class="list-group">
+	    <li class="list-group-item">Artist: <%= @album.band %></li>
+	    <li class="list-group-item">Genre: <%= @album.genre.name %></li>
+	    <li class="list-group-item">Description: <%= @album.description %></li>
+	    <li class="list-group-item">Year Released: <%= @album.year %></li>
+	  </ul>
+	</div>  
+  <div class="panel-heading">Reviews (# of reviews: <%= @album.reviews.count %>)</div>
+  	<div class="panel-body">
+
+	    <div class="list-group-item"><%= render @album.reviews %></div>
+	</div>    
+
+		<%= link_to "Add Review", new_album_review_path(@album), class: "btn btn-default" %>
+
+		<%= link_to "Back", root_path, class: "btn btn-default"  %>
 
 
-<p><%= render @album.reviews %></p>
 
-<%= button_to "Add Review", new_album_review_path(@album) %><br/>
 
-<%= button_to "Home", root_path %><br/>
+		<% if user_signed_in? %>
 
-<% if user_signed_in? %>
+		<% if @album.user_id == current_user.id %>
+		<button type="button" class="btn btn-primary">
+			<%= link_to "Edit", edit_album_path(@album), class: "btn btn-default"  %>
+		</button>
+		<button type="button" class="btn btn-danger">
+			<%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Delete #{@album.title} album"}, class: "btn btn-default"  %>
+		</button>
+		<% end %>
 
-<% if @album.user_id == current_user.id %>
-	<%= button_to "Edit Album", edit_album_path(@album) %><br/>
-	<%= button_to "Delete Album", album_path(@album), method: :delete, data: { confirm: "Delete #{@album.title} album"} %>
-<% end %>
+		<% end %>
 
-<% end %>
-
+	</div>
+  		
+</div>
