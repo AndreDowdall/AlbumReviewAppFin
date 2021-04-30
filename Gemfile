@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -34,7 +34,7 @@ gem 'simple_form', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'activeadmin', '~> 2.9'
-#gem 'mini_magick', '~> 4.11'
+gem 'mini_magick', '~> 4.11'
 gem 'sendgrid-ruby', '~> 6.4'
 
 #buckateer
