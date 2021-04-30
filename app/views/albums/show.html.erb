@@ -11,6 +11,18 @@
 	    <li class="list-group-item">Year Released: <%= @album.year %></li>
 	  </ul>
 	</div>  
+		<% if user_signed_in? %>
+
+		<% if @album.user_id == current_user.id %>
+		<button type="button" class="btn btn-default" >
+			<%= link_to "Edit Album", edit_album_path(@album) %>
+		</button>
+		<button type="button" class="btn btn-default" >
+			<%= link_to "Delete Album", album_path(@album), method: :delete, data: { confirm: "Delete #{@album.title} album"} %>
+		</button>
+		<% end %>
+
+		<% end %>
   <div class="panel-heading">Reviews (# of reviews: <%= @album.reviews.count %>)</div>
   	<div class="panel-body">
 
@@ -24,18 +36,7 @@
 
 
 
-		<% if user_signed_in? %>
 
-		<% if @album.user_id == current_user.id %>
-		<button type="button" class="btn btn-primary">
-			<%= link_to "Edit", edit_album_path(@album), class: "btn btn-default"  %>
-		</button>
-		<button type="button" class="btn btn-danger">
-			<%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Delete #{@album.title} album"}, class: "btn btn-default"  %>
-		</button>
-		<% end %>
-
-		<% end %>
 
 	</div>
   		
