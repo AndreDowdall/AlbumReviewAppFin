@@ -1,5 +1,5 @@
 ActiveAdmin.register Album do
-  actions :index, :show, :edit, :destroy
+  actions :index, :show, :destroy
   permit_params :title, :description, :band, :year
 
   # See permitted parameters documentation:

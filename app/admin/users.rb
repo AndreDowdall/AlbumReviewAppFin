@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
  # permit_params :email
- actions :index, :show, :edit, :destroy
+ actions :index, :show
 
    index do
     selectable_column

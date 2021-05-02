@@ -1,5 +1,5 @@
 ActiveAdmin.register Review do
-  actions :index, :show, :edit, :destroy
+   actions :index, :show
   permit_params :rating, :comment
 
  
